@@ -22,8 +22,8 @@ export default function Signin(){
         <Inputbox onchange={(e)=>{setPassword(e.target.value)}} label={"Password"} placeholder={"******"}/>
         <div className="pt-4">
           <Button onClick={async()=>{
-            console.log(email)
-            console.log(password)
+            // console.log(email)
+            // console.log(password)
             const response=await axios.post(("http://localhost:3000/api/vi/user/signin"),{},{
               headers:{
                 'email':email,

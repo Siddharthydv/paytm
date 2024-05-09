@@ -96,12 +96,17 @@ router.put("/",jwtverify,async (req,res)=>{
 }
 )
 
-router.get("/bulk",jwtverify,async(req,res)=>{
-    const filter=req.query.filter;
+router.get("/bulk", jwtverify,async(req,res)=>{
+    const filter=req.query.filter||"";
     const users=await user.find({
         username:{$regex:filter} })
         .catch(err=>res.send("error while bulking"))
-    res.json(users).status(200)
+        res.json({
+            user: users.map(user => ({
+                username: user.username,
+                _id: user._id
+            }))
+        })
     }
     )
 module.exports=router;

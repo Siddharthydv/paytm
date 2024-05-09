@@ -7,6 +7,6 @@ app.use(bodyparser.json())
 app.use(cors({
     origin:"http://localhost:5173",
     methods:"GET,POST,PUT,DELETE",
-    allowedHeaders:["Content-Type","email","password"]}))
+    allowedHeaders:["Content-Type","email","password","Authorization"]}))
 app.use("/api/vi",mainrouter)
 app.listen(3000)

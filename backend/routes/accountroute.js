@@ -10,6 +10,7 @@ router.get("/balance",jwtverify,async (req,res)=>{
 })
 
 router.post("/transfer",jwtverify,async (req,res)=>{
+    console.log("yo")
     const session=await mongoose.startSession();
     session.startTransaction();
     const{toid,amount}=req.body;
